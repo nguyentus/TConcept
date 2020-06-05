@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{8AF32B8E-174D-4EF0-BDA2-E977EBF09577}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TConcept.DAL/TConceptContext.cs">
+    <Files>
+      <File FileName="TConcept.DAL/TConceptContext.cs" Line="31" Column="91" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TConcept" expanded="True">
+            <Node name="TConcept.DAL" expanded="True">
+              <Node name="TConceptContext.cs" selected="True" />
+            </Node>
+            <Node name="TConcept.WEB" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.TConcept.WEB PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
