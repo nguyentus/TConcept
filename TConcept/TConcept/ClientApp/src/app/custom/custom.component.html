@@ -1,0 +1,134 @@
+<div class="page-header section-dark" style="background-image: url('assets/img/antoine-barres.jpg')">
+    <div class="filter"></div>
+    <div class="content-center">
+        <div class="container">
+            <div class="title-brand">
+                
+                <h1 class="presentation-title">Custom Component</h1>
+                <div class="fog-low">
+                    <img src="assets/img/fog-low.png" alt="">
+                </div>
+                <div class="fog-low right">
+                    <img src="assets/img/fog-low.png" alt="">
+                </div>
+            </div>
+
+            <h2 class="presentation-subtitle text-center">Custom Page</h2>
+        </div>
+    </div>
+    <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); "></div>
+    <h6 class=" category-absolute ml-auto mr-auto">NT Corp</h6>
+</div>
+
+<div class="container">
+  <h1 id="tableLabel">Product</h1>
+  <p>Product Component</p>
+  <p *ngIf="!products"><em>Loading...</em></p>
+  <button class="btn btn-primary" (click) = "openModal(true, null)" style="margin-bottom:1em">Add Product</button>
+
+
+  <div class="table-responsive-sm">
+    <div class="col-auto">
+      <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products.totalRecord>0">
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Quantity Per Unit</th>
+            <th>Unit Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products.data">
+            <td>{{ p.productId }}</td>
+            <td>{{ p.productName }}</td>
+            <td>{{ p.quantityPerUnit }}</td>
+            <td>{{ p.unitPrice }}</td>
+            <td>
+              <button class="btn btn-info btn-sm" (click) = "openModal(false, p)" style="margin-right: 1em;">Edit Product</button>
+              <button class="btn btn-danger btn-sm" (click) = "openModal(false, p)">Delete Product</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" aria-label="Previous" (click) = "searchPrevious()"><span aria-hidden="true" >«</span>
+          </a>
+        </li>
+        <li class="page-item" style="font-size: 20px;">
+            {{ products.pageNumber }}
+        </li>
+        <li class="page-item">
+          <a class="page-link" aria-label="Next" (click) = "searchNext()"><span aria-hidden="true">»</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" *ngIf="!isEdit">Add New Product</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" *ngIf="isEdit">Edit Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row" *ngIf="isEdit">
+          <div class="col-4">Product ID</div>
+          <div class="col-8">
+            <input class="form-control" [(ngModel)] = "product.productId">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-4">Product Name</div>
+          <div class="col-8">
+            <input class="form-control" [(ngModel)] = "product.productName">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-4">Category Name</div>
+          <div class="col-8">
+            <select class="form-control" [(ngModel)] = "product.categoryId">
+                  <option *ngFor = "let c of categories" value = "{{ c.categoryId }}"> {{ c.categoryName }} </option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-4">Quantity Per Unit</div>
+          <div class="col-8">
+            <input class="form-control" [(ngModel)] = "product.quantityPerUnit">
+          </div>
+        </div>  
+        <br>
+        <div class="row">
+          <div class="col-4">Unit Price</div>
+          <div class="col-8">
+            <input class="form-control" type="number" [(ngModel)] = "product.unitPrice">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="margin: 1em;">
+        <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-top: 1em;">Close</button>
+        <button type="button" class="btn btn-success" (click) = "addProduct()" *ngIf="!isEdit" style="margin-top: 1em;">Add</button>
+        <button type="button" class="btn btn-danger" (click) = "deleteProduct()" *ngIf="isEdit" style="margin-top: 1em;">Delete</button>
+        <button type="button" class="btn btn-primary" (click) = "updateProduct()" *ngIf="isEdit" style="margin-top: 1em;">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

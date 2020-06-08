@@ -1,0 +1,75 @@
+<div class="page-header section-dark" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/tconcept-e8cbc.appspot.com/o/SofaPage.jpg?alt=media&token=faaa9e2e-0563-44b0-aad3-80b2106c8374')">
+    <div class="filter"></div>
+    <div class="content-center">
+        <div class="container">
+            <div class="title-brand">
+                
+                <h1 class="presentation-title">SOFA</h1>
+                <div class="fog-low">
+                    <img src="assets/img/fog-low.png" alt="">
+                </div>
+                <div class="fog-low right">
+                    <img src="assets/img/fog-low.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); "></div>
+    <h6 class=" category-absolute ml-auto mr-auto">Thanh Tu Nguyen Corp</h6>
+</div>
+
+
+
+<div class="container" >
+    <div class="ngay-cua-me-section">
+      <div class="title">Sofa</div>
+      
+      <table class="table table-striped">
+        <tr *ngFor="let item of listSofa">
+          <td>{{item.postName}}</td>
+        </tr>
+      </table>
+
+      <!-- <div class="flower-product">
+        <div *ngIf = "!listSofa">
+          <p>Hết</p>
+        </div>
+        <div class="row" *ngIf = "listSofa">
+          <div class="col-md-3" *ngFor="let item of listSofa.data">
+            <div class="flower-box">
+              <a (click)="handleClickProduct(item?.productId)" class="product-item">
+                <div class="img-product">
+                  <img src={{item?.pictureURL}} alt="img">
+                </div>
+                <div class="flower-name text-center">{{item?.postName}}</div>
+                <div class="flower-name text-center">{{item?.content}}</div>
+              </a>
+            </div>
+          </div>    
+        </div>
+      </div> -->
+    </div>
+    <hr>
+</div>
+
+
+<!-- <div class="container">
+    <div class="table-responsive-sm">
+      <div class="col-auto">
+        <table class='table table-striped' aria-labelledby="tableLabel">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of products.data">
+              <td>{{ p.id }}</td>
+              <td>{{ p.text }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> -->

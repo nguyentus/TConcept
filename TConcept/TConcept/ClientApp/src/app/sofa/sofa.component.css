@@ -1,0 +1,68 @@
+.flower-view-by-categories{
+    margin: 50px 0;
+}
+.carousel-item img{
+    width: 100%;
+}
+.categories-box{
+    border: 1px solid gray;
+}
+.img-categories{
+    text-align: center;
+    margin: 0 auto;
+}
+.img-categories img{
+    transition: all .3s;
+    width: 98%;
+}
+.img-categories img:hover{
+    transform: scale(1.02);
+}
+.categories-item:hover{
+    transform: scale(1.05);
+}
+.cate-name{
+    text-align: center;
+    font-weight: 300;
+    
+}
+.flower-view-by-categories .container .row a{
+    text-decoration: none;
+    color: black;
+}
+.ngay-cua-me-section{
+    margin:10px 0;
+}
+.title{
+    font-size: 38px;
+    font-weight: 300;
+}
+.flower-product{
+    margin: 50px 0;
+}
+.flower-box .img-product img{
+    width: 100%;
+}
+.flower-product .flower-box .product-item{
+    cursor: pointer;
+}
+.flower-box a{
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.flower-name,.flower-price{
+    color: black;
+}
+.flower-product .row >div{
+    margin: 30px 0;
+}
+.flower-theme{
+    margin-top: 20px ;
+}
+.flower-theme .categories-item{
+    cursor: pointer;
+    transition: all .3s;
+}
+.flower-theme .row{
+    justify-content: center;
+}
