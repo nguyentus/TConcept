@@ -12,7 +12,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductComponent } from './product/product.component';
 // import { ProductManagementComponent } from './product-management/product-management.component';
 
 
@@ -21,7 +20,6 @@ import { ProductComponent } from './product/product.component';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    ProductComponent,
     // ProductManagementComponent
   ],
   imports: [
