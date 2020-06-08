@@ -38,6 +38,29 @@ namespace TConcept.BLL
         #endregion
 
         #region Methods
+        public object SearchProduct(SearchProductReq req)
+        {
+            var pro = All.Where(x => x.ProductName.Contains(req.Keyword));
+
+            var offset = (req.Page - 1) * req.Size;
+            var total = pro.Count();
+            int totalPages = (total % req.Size) == 0 ? (total / req.Size) : (int)(total / req.Size + 1);
+            var data = pro.OrderBy(x => x.ProductName).Skip(offset).Take(req.Size).ToList();
+
+            var res = new
+            {
+                Data = data,
+                TotalRecord = total,
+                TotalPages = totalPages,
+                Page = req.Page,
+                Size = req.Size
+            };
+            return res;
+        }
+        public List<object> GetAllProductsByStored()
+        {
+            return _rep.GetAllProductsByStored();
+        }
         public SingleRsp CreateProduct(ProductReq product)
         {
             var res = new SingleRsp();
@@ -77,11 +100,9 @@ namespace TConcept.BLL
             res = _rep.UpdateProduct(productUpdate);
             return res;
         }
-        public SingleRsp DeleteProduct(int id)
+        public SingleRsp DeleteProductById(int id)
         {
-            var res = new SingleRsp();
-            var productDelete = _rep.All.First(p => p.ProductId == id);
-            res = _rep.DeleteProduct(productDelete);
+            var res = _rep.DeleteProductById(id);
             return res;
         }
         #endregion

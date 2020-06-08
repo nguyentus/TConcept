@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using TConcept.Common.DAL;
@@ -24,71 +27,86 @@ namespace TConcept.DAL
         }
         #endregion
 
-        #region Methods
-
-        public SingleRsp CreateOrder(Orders order)
+        #region Methods 
+        public List<object> GetAllInfoOrder()
         {
-            var res = new SingleRsp();
-            using (var context = new TConceptContext())
+            List<object> res = new List<object>();
+            var cnn = (SqlConnection)Context.Database.GetDbConnection();
+            if (cnn.State == ConnectionState.Closed)
             {
-                using (var tran = context.Database.BeginTransaction())
+                cnn.Open();
+            }
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                var cmd = cnn.CreateCommand();
+                cmd.CommandText = "GetAllInfoOrder"; // lay ten store mun thuc hien
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand = cmd; // goi thuc thi store
+                da.Fill(ds);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    try
+                    foreach (DataRow row in ds.Tables[0].Rows)
                     {
-                        var t = context.Orders.Add(order);
-                        context.SaveChanges();
-                        tran.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tran.Rollback();
-                        res.SetError(ex.StackTrace);
+                        var x = new
+                        {
+                            OrderID = row.IsNull("OrderID") ? null : row["OrderID"],
+                            FullName = row.IsNull("FullName") ? null : row["FullName"],
+                            OrderDate = row.IsNull("OrderDate") ? null : row["OrderDate"],
+                            Total = row.IsNull("Total") ? null : row["Total"],
+                        };
+                        res.Add(x);
                     }
                 }
             }
-            return res;
-        }
-        public SingleRsp UpdateOrder(Orders order)
-        {
-            var res = new SingleRsp();
-            using (var context = new TConceptContext())
+            catch (Exception ex)
             {
-                using (var tran = context.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        var t = context.Orders.Update(order);
-                        context.SaveChanges();
-                        tran.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tran.Rollback();
-                        res.SetError(ex.StackTrace);
-                    }
-                }
+                res = null;
             }
             return res;
         }
-        public SingleRsp DeleteOrder(Orders order)
+        public List<object> GetOrderDetailById(int id)
         {
-            var res = new SingleRsp();
-            using (var context = new TConceptContext())
+            List<object> res = new List<object>();
+                var cnn = (SqlConnection)Context.Database.GetDbConnection();
+            if (cnn.State == ConnectionState.Closed)
             {
-                using (var tran = context.Database.BeginTransaction())
+                cnn.Open();
+            }
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                var cmd = cnn.CreateCommand();
+                cmd.CommandText = "GetOrderDetailById"; // lay ten store mun thuc hien
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OrderID", id);
+                da.SelectCommand = cmd; // goi thuc thi store
+                da.Fill(ds);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    try
+                    foreach (DataRow row in ds.Tables[0].Rows)
                     {
-                        var t = context.Orders.Remove(order);
-                        context.SaveChanges();
-                        tran.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tran.Rollback();
-                        res.SetError(ex.StackTrace);
+                        var x = new
+                        {
+                            OrderID = row.IsNull("OrderID") ? null : row["OrderID"],
+                            CustomerID = row.IsNull("CustomerID") ? null : row["CustomerID"],
+                            FullName = row.IsNull("FullName") ? null : row["FullName"],
+                            OrderDate = row.IsNull("OrderDate") ? null : row["OrderDate"],
+                            ProductId = row.IsNull("ProductId") ? null : row["ProductId"],
+                            ProductName = row.IsNull("ProductName") ? null : row["ProductName"],
+                            Quantity = row.IsNull("Quantity") ? null : row["Quantity"],
+                            Price = row.IsNull("Price") ? null : row["Price"],
+                            Notes = row.IsNull("Notes") ? null : row["Notes"]
+                        };
+                        res.Add(x);
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                res = null;
             }
             return res;
         }

@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nguyenthanhtu/Desktop/TConcept/TConcept/TConcept.Common/TConcept.Common.csproj": {}
+    "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj": {}
   },
   "projects": {
-    "/Users/nguyenthanhtu/Desktop/TConcept/TConcept/TConcept.Common/TConcept.Common.csproj": {
+    "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nguyenthanhtu/Desktop/TConcept/TConcept/TConcept.Common/TConcept.Common.csproj",
+        "projectUniqueName": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj",
         "projectName": "TConcept.Common",
-        "projectPath": "/Users/nguyenthanhtu/Desktop/TConcept/TConcept/TConcept.Common/TConcept.Common.csproj",
-        "packagesPath": "/Users/nguyenthanhtu/.nuget/packages/",
-        "outputPath": "/Users/nguyenthanhtu/Desktop/TConcept/TConcept/TConcept.Common/obj/",
+        "projectPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj",
+        "packagesPath": "C:\\Users\\thien\\.nuget\\packages\\",
+        "outputPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nguyenthanhtu/.config/NuGet/NuGet.Config"
+          "C:\\Users\\thien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

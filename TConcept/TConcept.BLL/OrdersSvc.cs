@@ -38,37 +38,13 @@ namespace TConcept.BLL
         #endregion
 
         #region Methods
-        public SingleRsp CreateOrder(OrderReq order)
+        public List<object> GetAllInfoOrder()
         {
-            var res = new SingleRsp();
-            var orderNew = new Orders()
-            {
-                CustomerId = order.CustomerId,
-                OrderDate = order.OrderDate,
-                Notes = order.Notes
-            };
-            res = _rep.CreateOrder(orderNew);
-            return res;
-        }
-        public SingleRsp UpdateOrder(OrderReq order)
+            return _rep.GetAllInfoOrder();
+        } 
+        public List<object> GetOrderDetailById(int id)
         {
-            var res = new SingleRsp();
-            var orderUpdate = new Orders()
-            {
-                OrderId = order.OrderId,
-                CustomerId = order.CustomerId,
-                OrderDate = order.OrderDate,
-                Notes = order.Notes
-            };
-            res = _rep.UpdateOrder(orderUpdate);
-            return res;
-        }
-        public SingleRsp DeleteOrder(int id)
-        {
-            var res = new SingleRsp();
-            var orderDelete = _rep.All.First(p => p.OrderId == id);
-            res = _rep.DeleteOrder(orderDelete);
-            return res;
+            return _rep.GetOrderDetailById(id);
         }
         #endregion
     }

@@ -19,6 +19,14 @@ namespace TConcept.WEB.Controllers
             _svc = new AccountsSvc();
         }
 
+        [HttpPost("get-account-login")]
+        public IActionResult getAccountLogin([FromBody]AccountReq req)
+        {
+            var res = new SingleRsp();
+            res = _svc.Login(req.UserName, req.UserPassword);
+            return Ok(res);
+        }
+
         [HttpPost("create-account")]
         public IActionResult CreateAccount([FromBody]AccountReq req)
         {
@@ -33,34 +41,26 @@ namespace TConcept.WEB.Controllers
             return Ok(res);
         }
 
-        [HttpPost("delete-account")]
-        public IActionResult DeleteAccount([FromBody]SimpleReq req)
-        {
-            var res = _svc.DeleteAccount(req.Id);
-            return Ok(res);
-        }
+        //[HttpPost("delete-account")]
+        //public IActionResult DeleteAccount([FromBody]SimpleReq req)
+        //{
+        //    var res = _svc.DeleteAccount(req.Id);
+        //    return Ok(res);
+        //}
 
-        [HttpPost("get-all")]
-        public IActionResult getAllAccount()
-        {
-            var res = new SingleRsp();
-            res.Data = _svc.All;
-            return Ok(res);
-        }
+        //[HttpPost("get-all")]
+        //public IActionResult getAllAccount()
+        //{
+        //    var res = new SingleRsp();
+        //    res.Data = _svc.All;
+        //    return Ok(res);
+        //}
 
         [HttpPost("get-by-id")]
         public IActionResult getAccountById([FromBody]SimpleReq req)
         {
             var res = new SingleRsp();
             res = _svc.Read(req.Id);
-            return Ok(res);
-        }
-
-        [HttpPost("get-account-login")]
-        public IActionResult getAccountLogin([FromBody]AccountReq req)
-        {
-            var res = new SingleRsp();
-            res = _svc.Login(req.UserName, req.UserPassword);
             return Ok(res);
         }
 

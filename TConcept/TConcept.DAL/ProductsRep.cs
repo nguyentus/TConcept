@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using TConcept.Common.DAL;
+using TConcept.Common.Req;
 using TConcept.Common.Rsp;
 using TConcept.Models;
 
@@ -25,7 +29,53 @@ namespace TConcept.DAL
         #endregion
 
         #region Methods
-
+        public List<object> GetAllProductsByStored()
+        {
+            List<object> res = new List<object>();
+            var cnn = (SqlConnection)Context.Database.GetDbConnection();
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                var cmd = cnn.CreateCommand();
+                cmd.CommandText = "GetAllProductsByStored"; // lay ten store mun thuc hien
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand = cmd; // goi thuc thi store
+                da.Fill(ds);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var x = new
+                        {
+                            ProductId = row.IsNull("ProductId") ? null : row["ProductId"],
+                            ProductName = row.IsNull("ProductName") ? null : row["ProductName"],
+                            CategoryId = row.IsNull("CategoryId") ? null : row["CategoryId"],
+                            CategoryName = row.IsNull("CategoryName") ? null : row["CategoryName"],
+                            Height = row.IsNull("Height") ? null : row["Height"],
+                            Width = row.IsNull("Width") ? null : row["Width"],
+                            Length = row.IsNull("Length") ? null : row["Length"],
+                            Material = row.IsNull("Material") ? null : row["Material"],
+                            Color = row.IsNull("Color") ? null : row["Color"],
+                            Price = row.IsNull("Price") ? null : row["Price"],
+                            Stock = row.IsNull("Stock") ? null : row["Stock"],
+                            Image = row.IsNull("Image") ? null : row["Image"],
+                            Notes = row.IsNull("Notes") ? null : row["Notes"]
+                        };
+                        res.Add(x);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
         public SingleRsp CreateProduct(Products product)
         {
             var res = new SingleRsp();
@@ -70,25 +120,29 @@ namespace TConcept.DAL
             }
             return res;
         }
-        public SingleRsp DeleteProduct(Products product)
+        public SingleRsp DeleteProductById(int id)
         {
             var res = new SingleRsp();
-            using (var context = new TConceptContext())
+            var cnn = (SqlConnection)Context.Database.GetDbConnection();
+            if (cnn.State == ConnectionState.Closed)
             {
-                using (var tran = context.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        var t = context.Products.Remove(product);
-                        context.SaveChanges();
-                        tran.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tran.Rollback();
-                        res.SetError(ex.StackTrace);
-                    }
-                }
+                cnn.Open();
+            }
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                var cmd = cnn.CreateCommand();
+                cmd.CommandText = "DeleteProductById"; // lay ten store mun thuc hien
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ProductID", id);
+                da.SelectCommand = cmd; // goi thuc thi store
+                da.Fill(ds);
+                res.Data = ds.Tables;
+            }
+            catch (Exception ex)
+            {
+                res = null;
             }
             return res;
         }

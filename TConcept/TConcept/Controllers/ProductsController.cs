@@ -32,26 +32,26 @@ namespace TConcept.WEB.Controllers
             return Ok(res);
         }
 
-        [HttpPost("delete-product")]
-        public IActionResult DeleteProduct([FromBody]SimpleReq req)
+        [HttpPost("delete-product-by-id")]
+        public IActionResult DeleteProductById([FromBody]SimpleReq req)
         {
-            var res = _svc.DeleteProduct(req.Id);
+            var res = _svc.DeleteProductById(req.Id);
             return Ok(res);
         }
 
-        [HttpPost("get-all")]
-        public IActionResult getAllProducts()
+        [HttpPost("get-all-products-by-stored")]
+        public IActionResult GetAllProductsByStored()
         {
-            var res = new SingleRsp();
-            res.Data = _svc.All;
+            List<object> res = _svc.GetAllProductsByStored();
             return Ok(res);
         }
 
-        [HttpPost("get-by-id")]
-        public IActionResult getProductById([FromBody]SimpleReq req)
+        [HttpPost("search-products")]
+        public IActionResult SearchProducts([FromBody] SearchProductReq req)
         {
             var res = new SingleRsp();
-            res = _svc.Read(req.Id);
+            var pros = _svc.SearchProduct(req);
+            res.Data = pros;
             return Ok(res);
         }
 

@@ -32,20 +32,20 @@ namespace TConcept.WEB.Controllers
             return Ok(res);
         }
 
-        [HttpPost("delete-customer")]
-        public IActionResult DeleteCustomer([FromBody]SimpleReq req)
-        {
-            var res = _svc.DeleteCustomer(req.Id);
-            return Ok(res);
-        }
+        //[HttpPost("delete-customer")]
+        //public IActionResult DeleteCustomer([FromBody]SimpleReq req)
+        //{
+        //    var res = _svc.DeleteCustomer(req.Id);
+        //    return Ok(res);
+        //}
 
-        [HttpPost("get-all")]
-        public IActionResult getAllCustomers()
-        {
-            var res = new SingleRsp();
-            res.Data = _svc.All;
-            return Ok(res);
-        }
+        //[HttpPost("get-all")]
+        //public IActionResult getAllCustomers()
+        //{
+        //    var res = new SingleRsp();
+        //    res.Data = _svc.All;
+        //    return Ok(res);
+        //}
 
         [HttpPost("get-by-id")]
         public IActionResult getCustomerById([FromBody]SimpleReq req)
