@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 declare var $: any;
 @Component({
@@ -7,6 +7,7 @@ declare var $: any;
   styleUrls: ['./management.component.css']
 })
 export class ManagementComponent {
+
   path: any = 'https://tconcept.azurewebsites.net/api/Products/search-products';
   size: number = 5;
   products: any = {
@@ -35,6 +36,7 @@ export class ManagementComponent {
     private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.searchProduct(1);
   }
+
   searchProduct(cPage) {
     let x = {
       page: cPage,

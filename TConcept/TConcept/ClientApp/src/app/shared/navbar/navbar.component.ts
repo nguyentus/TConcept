@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
     constructor(public location: Location, private element : ElementRef) {
         this.sidebarVisible = false;
     }
-
+    
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
@@ -52,11 +52,11 @@ export class NavbarComponent implements OnInit {
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
       }
-        if( titlee === '/home' ) {
-            return true;
-        }
-        else {
+        if( titlee === '/management' ) {
+            
             return false;
+        }
+        else {return true;
         }
     }
     isDocumentation() {
