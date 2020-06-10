@@ -1,0 +1,156 @@
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+      <a class="nav-link text-dark" [routerLink]="['/']">Product</a>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link text-dark" [routerLink]="['/product-management']">Product</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/counter']">Order</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/']"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="">
+  <p *ngIf="!products"><em>Loading...</em></p>
+  <button class="btn btn-success" (click)="openModal(false,null)">Add new product</button>
+  <table class='table table-striped  text-center' style="margin-top: 10px;" aria-labelledby="tableLabel"
+    *ngIf="products.totalRecord>0">
+    <thead>
+      <tr class="row">
+        <th class="col col-1">Id</th>
+        <th class="col col-1">Image</th>
+        <th class="col col-1">Name</th>
+        <th class="col col-1">Category</th>
+        <th class="col col-1">Size</th>
+        <th class="col col-1">Material</th>
+        <th class="col col-1">Color</th>
+        <th class="col col-1">Price</th>
+        <th class="col col-1">Stock</th>
+        <th class="col col-1">Notes</th>
+        <th class="col col-2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pro of products.data; index as i;" class="row">
+        <td class="col col-1">{{ pro.productId }}</td>
+        <!-- BUG -->
+        <td class="col col-1">{{ pro.image }}</td>
+        <td class="col col-1">{{ pro.productName }}</td>
+        <td class="col col-1">{{ pro.categoryId }}</td>
+        <td class="col col-1">{{ pro.height }} - {{ pro.width }} - {{ pro.length }}</td>
+        <td class="col col-1">{{ pro.material }}</td>
+        <td class="col col-1">{{ pro.color }}</td>
+        <td class="col col-1">{{ pro.price }}</td>
+        <td class="col col-1">{{ pro.stock }}</td>
+        <td class="col col-1">{{ pro.notes }}</td>
+        <td class="col col-2">
+          <button class="btn btn-info" (click)="openModal(true,i)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteProduct(pro.productId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="pagination">
+    <li class="page-item">
+      <a href="javascript:void(0)" (click)="searchPrevious()">Trước</a>
+    </li>
+    <li class="page-item" style="margin-left: 5px;">{{products.page}}</li>
+    <li class="page-item" style="margin-left: 5px;">
+      <a href="javascript:void(0)" (click)="searchNext()">Sau</a>
+    </li>
+  </ul>
+  <!-- Modal -->
+  <div class="modal fade" id="modalProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 *ngIf="!isEdit" class="modal-title" id="exampleModalLongTitle">Add new product</h5>
+          <h5 *ngIf="isEdit" class="modal-title" id="exampleModalLongTitle">Edit product</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-4">Product ID
+              <input *ngIf="isEdit" type="text" [disabled]="isEdit" class="form-control"
+                [(ngModel)]="product.productId" />
+            </div>
+            <div class="col-4">Product Name
+              <input type="text" class="form-control" [(ngModel)]="product.productName" />
+            </div>
+            <div class="col-4">Category ID
+              <select class="form-control" [(ngModel)]="product.categoryId">
+                <option value="1">Sofa</option>
+                <option value="2">Bàn</option>
+                <option value="3">Ghế</option>
+                <option value="4">Tủ</option>
+                <option value="5">Giường</option>
+                <option value="6">Đồ trang trí</option>
+                <option value="7">Hàng thanh lý</option>
+                <option value="8">Sale</option>
+                <option value="9">Best seller</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <p class="font-weight-bold">Size</p>
+            <div class="row">
+              <div class="col-3">Height
+                <input type="number" class="form-control" [(ngModel)]="product.height" />
+              </div>
+              <div class="col-3">Width
+                <input type="number" class="form-control" [(ngModel)]="product.width" />
+              </div>
+              <div class="col-3">Length
+                <input type="number" class="form-control" [(ngModel)]="product.length" />
+              </div>
+              <div class="col-3">Stock
+                <input type="number" class="form-control" [(ngModel)]="product.stock" />
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <div class="row">
+            <div class="col-4">Material
+              <input type="text" class="form-control" [(ngModel)]="product.material" />
+            </div>
+            <div class="col-4">Color
+              <input type="text" class="form-control" [(ngModel)]="product.color" />
+            </div>
+            <div class="col-4">Price
+              <input type="number" class="form-control" [(ngModel)]="product.price" />
+            </div>
+          </div>
+          <br />
+
+          <div class="row">
+            <div class="col-6">ImageURL
+              <input type="text" class="form-control" [(ngModel)]="product.image" />
+            </div>
+            <div class="col-6">Notes
+              <input type="text" class="form-control" [(ngModel)]="product.notes" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer p-2">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button *ngIf="!isEdit" type="button" class="btn btn-primary" (click)="createProduct()">Create</button>
+          <button *ngIf="isEdit" type="button" class="btn btn-success" (click)="saveProduct()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

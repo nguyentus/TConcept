@@ -32,7 +32,6 @@ export class SofaComponent implements OnInit {
     //this._router.navigate(['/product-detail',productId])
   }
 
-
   ngOnInit() {
     
   }

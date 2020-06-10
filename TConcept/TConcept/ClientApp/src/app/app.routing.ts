@@ -10,7 +10,7 @@ import { LandingComponent } from './examples/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { CustomComponent } from './custom/custom.component';
 import { SofaComponent } from './sofa/sofa.component';
-import { ProductManagementComponent } from './product-management/product-management.component';
+import { ManagementComponent } from './management/management.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,7 +21,7 @@ const routes: Routes =[
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'custom',          component: CustomComponent },
     { path: 'sofa',          component: SofaComponent },
-    { path: 'product-management',          component: ProductManagementComponent }
+    { path: 'management',          component: ManagementComponent }
 ];
 
 @NgModule({
