@@ -8,37 +8,29 @@ import {Router} from '@angular/router';
   styleUrls: ['./sofa.component.css']
 })
 export class SofaComponent implements OnInit {
-  listSofa: any={
-    data: []
-  };
+  listProduct: any;
 
   public formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'VND',
     minimumFractionDigits:0
   })
-  public result:any;
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private _router:Router) {
     this.loadProduct();
   }
 
-  
   loadProduct(){
     //Tất cả sản phẩm   
-    this.http.post('https://eatenapi.azurewebsites.net/api/Posts/get-all-post-info',null).subscribe(res=>{
-      this.listSofa=res;
-      this.listSofa=this.listSofa.data;
+    this.http.post('https://tconcept.azurewebsites.net/api/Products/get-all-products-by-stored',null).subscribe(result=>{
+      this.listProduct = result;
     },err=>console.log(err));
   }
 
-  // handleOnClickTheme=(id)=>{
-  //   //console.log(id);
-  //   this._router.navigate(['/flower-by-theme/theme',id])
-  // }
-  // handleClickProduct=(idProduct)=>{
-  //   console.log(idProduct)
-  //   this._router.navigate(['/product-detail',idProduct])
-  // }
+  handleClickProduct=(productId)=>{
+    console.log(productId)
+    //this._router.navigate(['/product-detail',productId])
+  }
 
 
   ngOnInit() {

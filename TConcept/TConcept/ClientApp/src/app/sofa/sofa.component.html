@@ -20,56 +20,25 @@
 
 
 
-<div class="container" >
-    <div class="ngay-cua-me-section">
-      <div class="title">Sofa</div>
-      
-      <table class="table table-striped">
-        <tr *ngFor="let item of listSofa">
-          <td>{{item.postName}}</td>
-        </tr>
-      </table>
-
-      <!-- <div class="flower-product">
-        <div *ngIf = "!listSofa">
-          <p>Hết</p>
-        </div>
-        <div class="row" *ngIf = "listSofa">
-          <div class="col-md-3" *ngFor="let item of listSofa.data">
-            <div class="flower-box">
-              <a (click)="handleClickProduct(item?.productId)" class="product-item">
+<div class="container">
+    <div class="all-product">
+      <div class="title">Tất cả sản phẩm - Sofa</div>
+      <div class="sofa-product">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let item of listProduct">
+            <div class="sofa-box">
+              <a (click)="handleClickProduct(item.productId)" class="product-item">
                 <div class="img-product">
-                  <img src={{item?.pictureURL}} alt="img">
+                  <img src={{item.image}} alt="img">
                 </div>
-                <div class="flower-name text-center">{{item?.postName}}</div>
-                <div class="flower-name text-center">{{item?.content}}</div>
+                <div class="sofa-name text-center">{{item.productName}}</div>
+                <div class="text-center">{{item.notes}}</div>
+                <div class="text-center">{{formatter.format(item.price)}}</div>
               </a>
             </div>
-          </div>    
+          </div> 
+  
         </div>
-      </div> -->
-    </div>
-    <hr>
-</div>
-
-
-<!-- <div class="container">
-    <div class="table-responsive-sm">
-      <div class="col-auto">
-        <table class='table table-striped' aria-labelledby="tableLabel">
-          <thead>
-            <tr>
-              <th>Product ID</th>
-              <th>Product Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let p of products.data">
-              <td>{{ p.id }}</td>
-              <td>{{ p.text }}</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
-  </div> -->
+  </div>

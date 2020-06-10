@@ -12,6 +12,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SofaComponent } from './sofa/sofa.component';
 // import { ProductManagementComponent } from './product-management/product-management.component';
 
 
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     NavbarComponent,
     FooterComponent,
+    SofaComponent,
     // ProductManagementComponent
   ],
   imports: [
