@@ -1,0 +1,15 @@
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\bin\Release\netcoreapp3.1\TConcept.DAL.deps.json
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\bin\Release\netcoreapp3.1\TConcept.DAL.runtimeconfig.json
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\bin\Release\netcoreapp3.1\TConcept.DAL.runtimeconfig.dev.json
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\bin\Release\netcoreapp3.1\TConcept.DAL.dll
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\bin\Release\netcoreapp3.1\TConcept.DAL.pdb
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\bin\Release\netcoreapp3.1\TConcept.Common.dll
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\bin\Release\netcoreapp3.1\TConcept.Common.pdb
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\obj\Release\netcoreapp3.1\TConcept.DAL.csprojAssemblyReference.cache
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\obj\Release\netcoreapp3.1\TConcept.DAL.csproj.CoreCompileInputs.cache
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\obj\Release\netcoreapp3.1\TConcept.DAL.AssemblyInfoInputs.cache
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\obj\Release\netcoreapp3.1\TConcept.DAL.AssemblyInfo.cs
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\obj\Release\netcoreapp3.1\TConcept.DAL.csproj.CopyComplete
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\obj\Release\netcoreapp3.1\TConcept.DAL.dll
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\obj\Release\netcoreapp3.1\TConcept.DAL.pdb
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.DAL\obj\Release\netcoreapp3.1\TConcept.DAL.genruntimeconfig.cache

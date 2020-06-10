@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MyStudy\\TConcept\\TConcept\\TConcept.BLL\\TConcept.BLL.csproj": {}
+    "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.BLL\\TConcept.BLL.csproj": {}
   },
   "projects": {
-    "C:\\MyStudy\\TConcept\\TConcept\\TConcept.BLL\\TConcept.BLL.csproj": {
+    "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.BLL\\TConcept.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.BLL\\TConcept.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.BLL\\TConcept.BLL.csproj",
         "projectName": "TConcept.BLL",
-        "projectPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.BLL\\TConcept.BLL.csproj",
-        "packagesPath": "C:\\Users\\thien\\.nuget\\packages\\",
-        "outputPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.BLL\\obj\\",
+        "projectPath": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.BLL\\TConcept.BLL.csproj",
+        "packagesPath": "C:\\Users\\myway\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\myway\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,11 +27,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj": {
-                "projectPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj"
+              "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj": {
+                "projectPath": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj"
               },
-              "C:\\MyStudy\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj": {
-                "projectPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj"
+              "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj": {
+                "projectPath": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj"
               }
             }
           }
@@ -75,21 +75,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj": {
+    "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj",
+        "projectUniqueName": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj",
         "projectName": "TConcept.Common",
-        "projectPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj",
-        "packagesPath": "C:\\Users\\thien\\.nuget\\packages\\",
-        "outputPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\obj\\",
+        "projectPath": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj",
+        "packagesPath": "C:\\Users\\myway\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\myway\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -143,21 +143,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\MyStudy\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj": {
+    "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj",
         "projectName": "TConcept.DAL",
-        "projectPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj",
-        "packagesPath": "C:\\Users\\thien\\.nuget\\packages\\",
-        "outputPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.DAL\\obj\\",
+        "projectPath": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.DAL\\TConcept.DAL.csproj",
+        "packagesPath": "C:\\Users\\myway\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\myway\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -170,8 +170,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj": {
-                "projectPath": "C:\\MyStudy\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj"
+              "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj": {
+                "projectPath": "C:\\Users\\myway\\OneDrive\\Máy tính\\TConcept\\TConcept\\TConcept.Common\\TConcept.Common.csproj"
               }
             }
           }
@@ -215,7 +215,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

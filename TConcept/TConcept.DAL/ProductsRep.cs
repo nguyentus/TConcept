@@ -29,6 +29,55 @@ namespace TConcept.DAL
         #endregion
 
         #region Methods
+        public object GetProductById(int id)
+        {
+            object res = new object();
+            var cnn = (SqlConnection)Context.Database.GetDbConnection();
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                var cmd = cnn.CreateCommand();
+                cmd.CommandText = "GetProductById"; // lay ten store mun thuc hien
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ProductId", id);
+                da.SelectCommand = cmd; // goi thuc thi store
+                da.Fill(ds);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var x = new
+                        {
+                            ProductId = row.IsNull("ProductId") ? null : row["ProductId"],
+                            ProductName = row.IsNull("ProductName") ? null : row["ProductName"],
+                            CategoryId = row.IsNull("CategoryId") ? null : row["CategoryId"],
+                            CategoryName = row.IsNull("CategoryName") ? null : row["CategoryName"],
+                            Height = row.IsNull("Height") ? null : row["Height"],
+                            Width = row.IsNull("Width") ? null : row["Width"],
+                            Length = row.IsNull("Length") ? null : row["Length"],
+                            Material = row.IsNull("Material") ? null : row["Material"],
+                            Color = row.IsNull("Color") ? null : row["Color"],
+                            Price = row.IsNull("Price") ? null : row["Price"],
+                            Stock = row.IsNull("Stock") ? null : row["Stock"],
+                            Image = row.IsNull("Image") ? null : row["Image"],
+                            Notes = row.IsNull("Notes") ? null : row["Notes"]
+                        };
+                        res = x;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
+
         public List<object> GetAllProductsByStored()
         {
             List<object> res = new List<object>();
