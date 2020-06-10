@@ -1,0 +1,25 @@
+.detail-block{
+    margin: 100px 0;
+}
+.img-product img{
+    width: 100%;
+}
+.product-name{
+    font-weight: 300;
+    font-size: 35px;
+}
+.product-price{
+    font-weight: 300;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.buy-section{
+    width: 100%;
+    margin-left: 20px;
+}
+@media (max-width: 768px) {
+    img {
+      max-height: 250px;
+      height: auto;  
+    }
+}

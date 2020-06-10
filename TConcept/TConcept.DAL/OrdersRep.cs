@@ -28,6 +28,29 @@ namespace TConcept.DAL
         #endregion
 
         #region Methods 
+        public SingleRsp CreateOrder(Orders orders)
+        {
+            var res = new SingleRsp();
+            using (var context = new TConceptContext())
+            {
+                using (var tran = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var t = context.Orders.Add(orders);
+                        context.SaveChanges();
+                        tran.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        res.SetError(ex.StackTrace);
+                    }
+                }
+            }
+            return res;
+        }
+
         public List<object> GetAllInfoOrder()
         {
             List<object> res = new List<object>();

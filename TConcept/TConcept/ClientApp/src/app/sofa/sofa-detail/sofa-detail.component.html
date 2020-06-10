@@ -1,0 +1,48 @@
+<div class="detail-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto">
+                <div class="card page-carousel">
+                    <ngb-carousel>
+                        <ng-template ngbSlide>
+                            <img src={{product.image}} class="h-sm-200 w-sm-80" alt="product-img">
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/tconcept-e8cbc.appspot.com/o/img1(1).png?alt=media&token=96de8ded-8bec-4fd1-88a6-815d8f9d6cf7" alt="product-img">
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/tconcept-e8cbc.appspot.com/o/img1(2).png?alt=media&token=a66023b8-5290-413f-86ec-66a8adc08ba8" alt="product-img">
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/tconcept-e8cbc.appspot.com/o/img1(3).png?alt=media&token=f47038b5-2757-4c56-a30c-c41589fc6c8b" alt="product-img">
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-product">
+                    <div class="buy-section">
+                        <div class="product-name">{{product.productName}}</div>
+                        <div class="product-price">{{formatter.format(product.price)}}</div>
+                        <button type="button" class="btn btn-default btn-round o" (click)="handleAddProduct(product.productId)"><i class="fa fa-shopping-cart "></i>Mua Hàng</button>
+                    </div>
+                    <hr>
+                    <div class="promo-section">
+                        <p>Nhận hàng trong ngày & MIỄN PHÍ GIAO HÀNG khi đặt hàng trước 15:00 mỗi ngày.</p>
+                        <ul>
+                            <li class="flower-caption">Chiều cao: {{product.height}} cm</li>
+                            <li class="flower-caption">Chiều rộng: {{product.width}} cm</li>
+                            <li class="flower-caption">Chiều dài: {{product.length}} cm</li>
+                            <li class="flower-caption">Chất liệu: {{product.material}}</li>
+                            <li class="flower-caption">Màu sắc: {{product.color}} </li>
+                        </ul>
+                        <p style="color: gray;">
+                            <span style="font-style: italic;">{{product.notes}}</span>
+                        </p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,6 +18,13 @@ namespace TConcept.WEB.Controllers
             _svc = new OrdersSvc();
         }
 
+        [HttpPost("create-order")]
+        public IActionResult CreateOrder([FromBody]OrderReq req)
+        {
+            var res = _svc.CreateOrder(req);
+            return Ok(res);
+        }
+
         [HttpPost("get-order-details-by-id")]
         public IActionResult getOrderDetailById([FromBody] SimpleReq req)
         {
