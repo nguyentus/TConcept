@@ -3,7 +3,6 @@
     <div class="content-center">
         <div class="container">
             <div class="title-brand">
-                
                 <h1 class="presentation-title">SOFA</h1>
                 <div class="fog-low">
                     <img src="assets/img/fog-low.png" alt="">
@@ -27,7 +26,7 @@
         <div class="row">
           <div class="col-md-4" *ngFor="let item of listProduct">
             <div class="sofa-box">
-              <a (click)="handleClickProduct(item.productId)" class="product-item">
+              <a (click)="handleClickProduct(item.productId)"  class="product-item">
                 <div class="img-product">
                   <img src={{item.image}} alt="img">
                 </div>

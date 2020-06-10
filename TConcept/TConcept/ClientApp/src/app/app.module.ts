@@ -13,7 +13,7 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SofaComponent } from './sofa/sofa.component';
-// import { ProductManagementComponent } from './product-management/product-management.component';
+import { SofaDetailComponent } from './sofa/sofa-detail/sofa-detail.component';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { SofaComponent } from './sofa/sofa.component';
     NavbarComponent,
     FooterComponent,
     SofaComponent,
-    // ProductManagementComponent
+    SofaDetailComponent
   ],
   imports: [
     BrowserModule,

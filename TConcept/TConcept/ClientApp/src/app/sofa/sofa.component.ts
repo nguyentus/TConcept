@@ -10,13 +10,13 @@ import {Router} from '@angular/router';
 export class SofaComponent implements OnInit {
   listProduct: any;
 
-  public formatter = new Intl.NumberFormat('en-US', {
+  public formatter = new Intl.NumberFormat('de-DE', {
     style: 'currency',
     currency: 'VND',
     minimumFractionDigits:0
   })
   
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private _router:Router) {
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router:Router) {
     this.loadProduct();
   }
 
@@ -27,11 +27,9 @@ export class SofaComponent implements OnInit {
     },err=>console.log(err));
   }
 
-  handleClickProduct=(productId)=>{
-    console.log(productId)
-    //this._router.navigate(['/product-detail',productId])
+  handleClickProduct(productId){
+    this.router.navigateByUrl(`/sofa-detail/${productId}`)
   }
-
 
   ngOnInit() {
     

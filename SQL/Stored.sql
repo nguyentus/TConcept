@@ -1,8 +1,23 @@
+CREATE PROC GetProductById
+(
+	@ProductId INT
+)
+AS
+BEGIN
+	select p.*, c.CategoryName 
+	from Products p, Categories c
+	where p.CategoryID = c.CategoryID AND @ProductId = p.ProductID 
+END
+GO
+exec GetProductById 1
+go
+
 ---
 CREATE PROC GetAllInfoOrder
 AS
 BEGIN
-	SELECT o.OrderID, c.FullName, o.OrderDate, SUM(p.Price * od.ProductID) AS Total FROM Orders o, OrderDetails od, Customers c, Products p
+	SELECT o.OrderID, c.FullName, o.OrderDate, SUM(p.Price * od.Quantity) AS Total 
+	FROM Orders o, OrderDetails od, Customers c, Products p
 	WHERE o.OrderID = od.OrderID 
 		and c.CustomerID = o.CustomerID
 		and od.ProductID = p.ProductID
@@ -16,7 +31,8 @@ go
 CREATE PROC GetOrderDetailById (@OrderID int)
 AS
 BEGIN
-	SELECT * FROM Orders o, OrderDetails od, Products p, Customers c
+	SELECT * 
+	FROM Orders o, OrderDetails od, Products p, Customers c
 	WHERE o.OrderID = od.OrderID 
 		and c.CustomerID = o.CustomerID
 		and od.ProductID = p.ProductID
@@ -29,7 +45,8 @@ go
 CREATE PROC GetAllProductsByStored
 AS
 BEGIN
-	 select p.*, c.CategoryName from Products p, Categories c
+	 select p.*, c.CategoryName 
+	 from Products p, Categories c
 	 where p.CategoryID = c.CategoryID
 END
 GO
