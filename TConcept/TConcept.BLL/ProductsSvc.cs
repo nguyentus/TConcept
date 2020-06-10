@@ -57,6 +57,12 @@ namespace TConcept.BLL
             };
             return res;
         }
+
+        public object GetProductById(int id)
+        {
+            return _rep.GetProductById(id);
+        }
+
         public List<object> GetAllProductsByStored()
         {
             return _rep.GetAllProductsByStored();
