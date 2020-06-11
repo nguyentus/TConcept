@@ -13,6 +13,7 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SofaComponent } from './sofa/sofa.component';
+import { SofaDetailComponent } from './sofa/sofa-detail/sofa-detail.component';
 import { ManagementComponent } from './management/management.component';
 import { OrderManagementComponent } from './management/order-management/order-management.component';
 import { ProductManagementComponent } from './management/product-management/product-management.component';
@@ -24,6 +25,7 @@ import { ProductManagementComponent } from './management/product-management/prod
     NavbarComponent,
     FooterComponent,
     SofaComponent,
+    SofaDetailComponent,
     ManagementComponent,
     OrderManagementComponent,
     ProductManagementComponent
