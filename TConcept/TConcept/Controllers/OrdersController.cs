@@ -19,7 +19,7 @@ namespace TConcept.WEB.Controllers
         }
 
         [HttpPost("create-order")]
-        public IActionResult CreateOrder([FromBody]OrderReq req)
+        public IActionResult CreateOrder([FromBody]ConfirmOrderReq req)
         {
             var res = _svc.CreateOrder(req);
             return Ok(res);

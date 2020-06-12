@@ -55,6 +55,13 @@ namespace TConcept.WEB.Controllers
             return Ok(res);
         }
 
+        [HttpPost("get-id-login")]
+        public IActionResult GetProductById([FromBody]LoginReq req)
+        {
+            object res = _svc.GetCustomerId(req.UserName, req.UserPassword);
+            return Ok(res);
+        }
+
         private readonly CustomersSvc _svc;
     }
 }

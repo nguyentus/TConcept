@@ -28,25 +28,32 @@ namespace TConcept.DAL
         #endregion
 
         #region Methods 
-        public SingleRsp CreateOrder(Orders orders)
+        public SingleRsp CreateOrder(int CustomerID, string Notes, int ProductID, int Quantity)
         {
             var res = new SingleRsp();
-            using (var context = new TConceptContext())
+            var cnn = (SqlConnection)Context.Database.GetDbConnection();
+            if (cnn.State == ConnectionState.Closed)
             {
-                using (var tran = context.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        var t = context.Orders.Add(orders);
-                        context.SaveChanges();
-                        tran.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tran.Rollback();
-                        res.SetError(ex.StackTrace);
-                    }
-                }
+                cnn.Open();
+            }
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                var cmd = cnn.CreateCommand();
+                cmd.CommandText = "CreateOrder"; // lấy tên store muốn thực hiện
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
+                cmd.Parameters.AddWithValue("@Notes", Notes);
+                cmd.Parameters.AddWithValue("@ProductID", ProductID);
+                cmd.Parameters.AddWithValue("@Quantity", Quantity);
+                da.SelectCommand = cmd; // gọi thực thi store
+                da.Fill(ds);
+                res.Data = ds.Tables;
+            }
+            catch (Exception ex)
+            {
+                res = null;
             }
             return res;
         }

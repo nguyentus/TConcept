@@ -76,6 +76,10 @@ namespace TConcept.BLL
             res = _rep.DeleteCustomer(customerDelete);
             return res;
         }
+        public object GetCustomerId(string UserName, string UserPassword)
+        {
+            return _rep.GetCustomerId(UserName, UserPassword);
+        }
         #endregion
     }
 }

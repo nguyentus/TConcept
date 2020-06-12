@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using TConcept.Common.DAL;
@@ -89,6 +92,44 @@ namespace TConcept.DAL
                         res.SetError(ex.StackTrace);
                     }
                 }
+            }
+            return res;
+        }
+
+        public object GetCustomerId(string UserName, string UserPassword)
+        {
+            object res = new object();
+            var cnn = (SqlConnection)Context.Database.GetDbConnection();
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                var cmd = cnn.CreateCommand();
+                cmd.CommandText = "GetCustomerId"; // lấy tên store muốn thực hiện
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserName", UserName);
+                cmd.Parameters.AddWithValue("@UserPassword", UserPassword);
+                da.SelectCommand = cmd; // gọi thực thi store
+                da.Fill(ds);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var x = new
+                        {
+                            CustomerID = row.IsNull("CustomerID") ? null : row["CustomerID"]
+                        };
+                        res = x;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res = null;
             }
             return res;
         }
