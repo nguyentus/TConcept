@@ -1,3 +1,42 @@
+CREATE PROC CreateOrder
+(
+	@CustomerID INT,
+	@Notes NTEXT,
+	@ProductID INT,
+	@Quantity INT
+)
+AS
+BEGIN
+	INSERT INTO Orders 
+	VALUES(@CustomerID, CONVERT(VARCHAR, GETDATE(), 121), @Notes)
+
+	DECLARE @OrderID INT
+	SELECT TOP(1) @OrderID = OrderID FROM Orders WHERE @CustomerID = CustomerID ORDER BY OrderDate DESC
+
+	INSERT INTO OrderDetails
+	VALUES(@OrderID, @ProductID, @Quantity, @Notes)
+END
+GO
+EXEC CreateOrder 1, 'ship vào phòng khách nha!!!', 1, 3
+GO
+
+---
+CREATE PROC GetCustomerId
+(
+	@UserName NVARCHAR(100),
+	@UserPassword NVARCHAR(100)
+)
+AS
+BEGIN
+	SELECT c.CustomerID
+	FROM Accounts a, Customers c
+	WHERE a.AccountID = c.AccountID AND @UserName = a.UserName AND @UserPassword = a.UserPassword    
+END
+GO
+EXEC GetCustomerId 'nguyentu2909', '1'
+GO
+
+---
 CREATE PROC GetProductById
 (
 	@ProductId INT

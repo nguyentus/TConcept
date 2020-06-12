@@ -28,7 +28,9 @@ export class SofaComponent implements OnInit {
   }
 
   handleClickProduct(productId){
-    this.router.navigateByUrl(`/sofa-detail/${productId}`)
+    localStorage.setItem("productId",JSON.stringify(productId));
+    this.router.navigateByUrl('/sofa-detail');
+    //this.router.navigateByUrl(`/sofa-detail/${productId}`)
   }
 
   ngOnInit() {

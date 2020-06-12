@@ -52,8 +52,7 @@ export class NavbarComponent implements OnInit {
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
       }
-        if( titlee === '/management' ) {
-            
+        if( titlee === '/management' || titlee === '/login' || titlee === '/confirm-order') {
             return false;
         }
         else {return true;

@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/tconcept-e8cbc.appspot.com/o/HomePage.jpeg?alt=media&token=2b1b22b5-f1d8-47b3-a4ba-a84a651b11de');">
+        <div class="filter"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                      <div class="card card-register">
+                          <h3 class="title">Đăng Nhập</h3>
+                          <form class="register-form">
+                              <label>Tài khoản</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-email-85"></i>
+                                  </span>
+                                </div>
+                                <input type="text" name="userName" class="form-control" placeholder="Tài khoản" (focus)="focus=true" (blur)="focus=false" [(ngModel)]="account.userName">
+                              </div>
+
+                              <label>Mật khẩu</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-key-25"></i>
+                                  </span>
+                                </div>
+                                  <input type="password" name="userPassword" class="form-control" placeholder="Mật khẩu" (focus)="focus1=true" (blur)="focus1=false" [(ngModel)]="account.userPassword">
+                              </div>
+                              <button class="btn btn-block btn-round" (click)="loginAccount()">Xác Nhận</button>
+                          </form>
+                      </div>
+                    </div>
+                </div>
+                <div class="footer register-footer text-center">
+                    <h6>&copy;{{test | date: 'yyyy'}} 2020, made by Thanh Tu Nguyen</h6>
+                </div>
+            </div>
+    </div>
+</div>

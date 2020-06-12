@@ -1,0 +1,16 @@
+.detail-block{
+    margin-top: 20px;
+}
+.img-product img{
+    width: 100%;
+}
+.title{
+    font-weight: 300;
+    font-size: 20px;
+}
+@media (max-width: 768px) {
+    img {
+      max-height: 250px;
+      height: auto;  
+    }
+}

@@ -11,6 +11,8 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { CustomComponent } from './custom/custom.component';
 import { SofaComponent } from './sofa/sofa.component';
 import { SofaDetailComponent } from './sofa/sofa-detail/sofa-detail.component';
+import { LoginComponent } from './login/login.component';
+import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 import { ManagementComponent } from './management/management.component';
 
 const routes: Routes =[
@@ -22,7 +24,10 @@ const routes: Routes =[
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'custom',          component: CustomComponent },
     { path: 'sofa',          component: SofaComponent },
-    { path: 'sofa-detail/:productId',          component: SofaDetailComponent },
+    // { path: 'sofa-detail/:productId',          component: SofaDetailComponent },
+    { path: 'sofa-detail',          component: SofaDetailComponent },
+    { path: 'login',          component: LoginComponent },
+    { path: 'confirm-order',          component: ConfirmOrderComponent },
     { path: 'management',          component: ManagementComponent }
 ];
 

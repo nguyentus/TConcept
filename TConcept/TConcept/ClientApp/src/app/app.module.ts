@@ -17,6 +17,8 @@ import { SofaDetailComponent } from './sofa/sofa-detail/sofa-detail.component';
 import { ManagementComponent } from './management/management.component';
 import { OrderManagementComponent } from './management/order-management/order-management.component';
 import { ProductManagementComponent } from './management/product-management/product-management.component';
+import { LoginComponent } from './login/login.component';
+import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { ProductManagementComponent } from './management/product-management/prod
     SofaDetailComponent,
     ManagementComponent,
     OrderManagementComponent,
-    ProductManagementComponent
+    ProductManagementComponent,
+    LoginComponent,
+    ConfirmOrderComponent
   ],
   imports: [
     BrowserModule,

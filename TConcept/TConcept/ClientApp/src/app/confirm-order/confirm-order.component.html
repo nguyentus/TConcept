@@ -1,0 +1,47 @@
+<p class="text-center h3">XÁC NHẬN ĐƠN HÀNG</p>
+<div class="detail-block">    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto" style="margin-top: 80px;">
+                <div class="card page-carousel">
+                    <ngb-carousel>
+                        <ng-template ngbSlide>
+                            <img src={{product.image}} class="h-sm-200 w-sm-80" alt="product-img">
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-product">
+                    <div>
+                        <p class="title">THÔNG TIN SẢN PHẨM</p>
+                        <ul>
+                            <li>Sản phẩm: {{product.productName}}</li>
+                            <li>Loại: {{product.notes}}</li>
+                            <li>Số lượng: {{quantity}}</li>
+                            <li>Đơn giá: {{formatter.format(product.price * quantity)}}</li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div>
+                        <p class="title">THÔNG TIN KHÁCH HÀNG</p>
+                        <ul>
+                            <li>Họ tên: {{customer.fullName}}</li>
+                            <li>Số điện thoại: {{customer.homePhone}}</li>
+                            <li>Địa chỉ: {{customer.address}}</li>
+                            <li>Sinh nhật: {{customer.birthDate}}</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="title">ĐỂ LẠI GHI CHÚ CHO CHÚNG TÔI</p>
+                            <input type="text" name="notes" class="form-control" placeholder="Ghi chú..." (focus)="focus=true" (blur)="focus=false" [(ngModel)]="notes.content">
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-block btn-round" name="order" (click)="confirmOrder()">Xác Nhận Đặt Hàng</button>
+    </div>
+</div>
+
+

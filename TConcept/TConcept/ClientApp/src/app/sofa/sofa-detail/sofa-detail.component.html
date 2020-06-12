@@ -24,20 +24,24 @@
                     <div class="buy-section">
                         <div class="product-name">{{product.productName}}</div>
                         <div class="product-price">{{formatter.format(product.price)}}</div>
-                        <button type="button" class="btn btn-default btn-round o" (click)="handleAddProduct(product.productId)"><i class="fa fa-shopping-cart "></i>Mua Hàng</button>
+                        <div class="row">
+                            <p style="margin-top: 5px; margin-left: 10px;">Số lượng:</p>
+                            <input type="number" name="quantity" class="form-control" placeholder="1" min="1" (focus)="focus=true" (blur)="focus=false" style="width: 50px; height: 30px;margin-left: 10px; margin-bottom: 20px; padding: 6px;" [(ngModel)]="content.quantity">
+                        </div>          
+                        <button type="button" class="btn btn-default btn-round o" (click)="handleAddProduct(product.productId)"><i class="fa fa-shopping-cart"></i>Mua Hàng</button>              
                     </div>
                     <hr>
-                    <div class="promo-section">
+                    <div>
                         <p>Nhận hàng trong ngày & MIỄN PHÍ GIAO HÀNG khi đặt hàng trước 15:00 mỗi ngày.</p>
                         <ul>
-                            <li class="flower-caption">Chiều cao: {{product.height}} cm</li>
-                            <li class="flower-caption">Chiều rộng: {{product.width}} cm</li>
-                            <li class="flower-caption">Chiều dài: {{product.length}} cm</li>
-                            <li class="flower-caption">Chất liệu: {{product.material}}</li>
-                            <li class="flower-caption">Màu sắc: {{product.color}} </li>
+                            <li>Chiều cao: {{product.height}} cm</li>
+                            <li>Chiều rộng: {{product.width}} cm</li>
+                            <li>Chiều dài: {{product.length}} cm</li>
+                            <li>Chất liệu: {{product.material}}</li>
+                            <li>Màu sắc: {{product.color}} </li>
                         </ul>
                         <p style="color: gray;">
-                            <span style="font-style: italic;">{{product.notes}}</span>
+                            <span style="font-style: italic;">Để đặt hàng Online quý khách cần đăng nhập tài khoản thành viên của chúng tôi.</span>
                         </p>
                     </div>
                     <hr>

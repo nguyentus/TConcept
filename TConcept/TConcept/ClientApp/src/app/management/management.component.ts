@@ -32,8 +32,7 @@ export class ManagementComponent {
     image: "",
     notes: ""
   };
-  constructor(
-    private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.searchProduct(1);
   }
 
