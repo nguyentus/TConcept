@@ -59,15 +59,17 @@
       </tr>
     </tbody>
   </table>
-  <ul class="pagination">
-    <li class="page-item">
-      <a href="javascript:void(0)" (click)="searchPrevious()">Trước</a>
-    </li>
-    <li class="page-item" style="margin-left: 5px;">{{products.page}}</li>
-    <li class="page-item" style="margin-left: 5px;">
-      <a href="javascript:void(0)" (click)="searchNext()">Sau</a>
-    </li>
-  </ul>
+  <div class="text-center">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" aria-label="Previous" (click) = "searchPrevious()"><span aria-hidden="true" >«</span></a>
+      </li>
+      <li class="page-item" style="margin-left: 5px;">{{products.page}}</li>
+      <li class="page-item" style="margin-left: 5px;">
+        <a class="page-link" aria-label="Next" (click) = "searchNext()"><span aria-hidden="true">»</span></a>
+      </li>
+    </ul>
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="modalProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
