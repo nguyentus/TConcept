@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TConcept.Common.Req
 {
-    public class SearchProductReq
+    public class SearchReq
     {
         public int Page { set; get; }
         public int Size { set; get; }

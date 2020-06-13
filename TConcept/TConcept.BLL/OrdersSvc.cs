@@ -6,6 +6,7 @@ using TConcept.Common.BLL;
 using TConcept.Common.Req;
 using TConcept.Common.Rsp;
 using TConcept.DAL;
+using TConcept.DAL.ViewModels;
 using TConcept.Models;
 
 namespace TConcept.BLL
@@ -38,11 +39,57 @@ namespace TConcept.BLL
         #endregion
 
         #region Methods
+        public object SearchOrder(SearchReq req)
+        {
+            //Keywords tìm kiếm là tên khách hàng
+            var context = new TConceptContext();
+            var orders = context.Orders.ToList();
+            var orderdetails = context.OrderDetails.ToList();
+            var customers = context.Customers.ToList();
+            var products = context.Products.ToList();
+
+
+            var orderResult = from o in orders join od in orderdetails on o.OrderId equals od.OrderId
+                              join c in customers on o.CustomerId equals c.CustomerId
+                              join p in products on od.ProductId equals p.ProductId
+                              where c.FullName.ToLower().Contains(req.Keyword)
+                              select new OrderInfoViewModel()
+                              {
+                                  OrderId = o.OrderId,
+                                  FullName = c.FullName,
+                                  ProductName = p.ProductName,
+                                  OrderDate = o.OrderDate,
+                                  Address = c.Address,
+                                  Notes = o.Notes, 
+                                  Price = od.Quantity * p.Price 
+                              };
+
+            //Thuật toán phân trang
+            var offset = (req.Page - 1) * req.Size;
+            var total = orderResult.Count();
+            int totalPages = (total % req.Size) == 0 ? (total / req.Size) : (int)(total / req.Size + 1);
+            //Lấy dữ liệu
+            var data = orderResult.OrderByDescending(x => x.OrderDate).Skip(offset).Take(req.Size).ToList();
+
+            var res = new
+            {
+                Data = data,
+                TotalRecord = total,
+                TotalPages = totalPages,
+                Page = req.Page,
+                Size = req.Size
+            };
+            return res;
+        }
         public SingleRsp CreateOrder(ConfirmOrderReq orderReq)
         {
             return _rep.CreateOrder(orderReq.CustomerId, orderReq.Notes, orderReq.ProductId, orderReq.Quantity);
         }
-
+        public SingleRsp DeleteOrder(int id)
+        {
+            var res = _rep.DeleteOrder(id);
+            return res;
+        }
         public List<object> GetAllInfoOrder()
         {
             return _rep.GetAllInfoOrder();

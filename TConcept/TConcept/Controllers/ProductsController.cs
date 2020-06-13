@@ -54,7 +54,7 @@ namespace TConcept.WEB.Controllers
         }
 
         [HttpPost("search-products")]
-        public IActionResult SearchProducts([FromBody] SearchProductReq req)
+        public IActionResult SearchProducts([FromBody]SearchReq req)
         {
             var res = new SingleRsp();
             var pros = _svc.SearchProduct(req);

@@ -40,6 +40,23 @@ namespace TConcept.WEB.Controllers
             res.Data = _svc.GetAllInfoOrder();
             return Ok(res);
         }
+
+        [HttpPost("search-orders")]
+        public IActionResult SearchProducts([FromBody]SearchReq req)
+        {
+            var res = new SingleRsp();
+            var orders = _svc.SearchOrder(req);
+            res.Data = orders;
+            return Ok(res);
+        }
+
+        [HttpPost("delete-order")]
+        public IActionResult DeleteOrder([FromBody]SimpleReq req)
+        {
+            var res = _svc.DeleteOrder(req.Id);
+            return Ok(res);
+        }
+
         private readonly OrdersSvc _svc;
     }
 }

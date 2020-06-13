@@ -38,7 +38,7 @@ namespace TConcept.BLL
         #endregion
 
         #region Methods
-        public object SearchProduct(SearchProductReq req)
+        public object SearchProduct(SearchReq req)
         {
             var pro = All.Where(x => x.ProductName.Contains(req.Keyword));
 

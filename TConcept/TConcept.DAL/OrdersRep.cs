@@ -140,6 +140,33 @@ namespace TConcept.DAL
             }
             return res;
         }
+
+        public SingleRsp DeleteOrder(int id)
+        {
+            var res = new SingleRsp();
+            var cnn = (SqlConnection)Context.Database.GetDbConnection();
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                var cmd = cnn.CreateCommand();
+                cmd.CommandText = "DeleteOrder"; //lấy tên store procedure muốn thực hiện
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OrderID", id);
+                da.SelectCommand = cmd; //thực thi store procedure
+                da.Fill(ds);
+                res.Data = ds.Tables;
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
         #endregion
     }
 }
