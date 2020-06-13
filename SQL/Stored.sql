@@ -1,3 +1,18 @@
+CREATE PROC DeleteOrder
+(
+	@OrderID INT
+)
+AS
+BEGIN
+	DELETE OrderDetails WHERE OrderID = @OrderID
+	DELETE Orders WHERE OrderID = @OrderID
+END
+GO
+
+EXEC DeleteOrder 28
+GO
+
+---------------------------------------------------------------------------------------------------------
 CREATE PROC CreateOrder
 (
 	@CustomerID INT,

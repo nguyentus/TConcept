@@ -32,6 +32,11 @@ export class ManagementComponent {
     image: "",
     notes: ""
   };
+  public formatter = new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'VND',
+    minimumFractionDigits:0
+  })
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.searchProduct(1);
   }
@@ -135,7 +140,8 @@ export class ManagementComponent {
         this.products = res.data;
         this.isEdit = true;
         this.searchProduct(1);
-        alert("New product has been added! Now you can modified! ");
+        alert("Thêm mới một sản phẩm thành công!");
+        $('#modalProduct').modal('hide');
       }
       else {
         alert(res.message);
@@ -165,7 +171,8 @@ export class ManagementComponent {
       if (res.success) {
         this.products = res.data;
         this.searchProduct(1);
-        alert("A product has been updated successfully");
+        alert("Sản phẩm đã được cập nhật thành công!");
+        $('#modalProduct').modal('hide');
       }
       else {
         alert(res.message);
@@ -185,7 +192,7 @@ export class ManagementComponent {
         if (res.success) {
           this.products = res.data;
           this.searchProduct(1);
-          alert("A product has been deleted successfully");
+          alert("Sản phẩm đã được xóa thành công!");
         }
         else {
           alert(res.message);

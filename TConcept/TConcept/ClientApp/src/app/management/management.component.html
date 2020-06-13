@@ -1,60 +1,57 @@
-<header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-      <a class="nav-link text-dark" [routerLink]="['/']">Product</a>
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/product-management']">Product</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Order</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/']"></a>
-          </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+  <p style="margin-left: 30px; font-size: 30px;">Quản Lý Sản Phẩm</p>
+  <div class="container">
+    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
+      <ul class="navbar-nav flex-grow">
+        <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link text-dark" [routerLink]="['/management']">Sản Phẩm</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link text-dark" [routerLink]="['/order-management']">Đơn Hàng</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>
+
 
 <div class="">
   <p *ngIf="!products"><em>Loading...</em></p>
-  <button class="btn btn-success" (click)="openModal(false,null)">Add new product</button>
+  <button class="btn btn-success" (click)="openModal(false,null)" style="margin-left: 30px;">Thêm mới Sản Phẩm</button>
   <table class='table table-striped  text-center' style="margin-top: 10px;" aria-labelledby="tableLabel"
     *ngIf="products.totalRecord>0">
     <thead>
       <tr class="row">
-        <th class="col col-1">Id</th>
-        <th class="col col-1">Image</th>
-        <th class="col col-1">Name</th>
-        <th class="col col-1">Category</th>
-        <th class="col col-1">Size</th>
-        <th class="col col-1">Material</th>
-        <th class="col col-1">Color</th>
-        <th class="col col-1">Price</th>
-        <th class="col col-1">Stock</th>
-        <th class="col col-1">Notes</th>
-        <th class="col col-2">Action</th>
+        <th class="col col-1">Mã SP</th>
+        <th class="col col-1">Hình Ảnh</th>
+        <th class="col col-1">Tên SP</th>
+        <th class="col col-1">Mã Loại SP</th>
+        <th class="col col-1">Kích Thước</th>
+        <th class="col col-1">Chất Liệu</th>
+        <th class="col col-1">Màu Sắc</th>
+        <th class="col col-1">Đơn Giá</th>
+        <th class="col col-1">Tồn Kho</th>
+        <th class="col col-1">Ghi Chú</th>
+        <th class="col col-2">Hành Động</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pro of products.data; index as i;" class="row">
-        <td class="col col-1">{{ pro.productId }}</td>
-        <!-- BUG -->
-        <td class="col col-1">{{ pro.image }}</td>
-        <td class="col col-1">{{ pro.productName }}</td>
-        <td class="col col-1">{{ pro.categoryId }}</td>
-        <td class="col col-1">{{ pro.height }} - {{ pro.width }} - {{ pro.length }}</td>
-        <td class="col col-1">{{ pro.material }}</td>
-        <td class="col col-1">{{ pro.color }}</td>
-        <td class="col col-1">{{ pro.price }}</td>
-        <td class="col col-1">{{ pro.stock }}</td>
-        <td class="col col-1">{{ pro.notes }}</td>
-        <td class="col col-2">
-          <button class="btn btn-info" (click)="openModal(true,i)">Edit</button>
-          <button class="btn btn-danger" (click)="deleteProduct(pro.productId)">Delete</button>
+        <td class="col col-1 info">{{ pro.productId }}</td>
+        <td class="col col-1">
+          <img width="150" height="100" [src]="pro.image" alt="product-img">
+        </td>
+        <td class="col col-1 nameInfo">{{ pro.productName }}</td>
+        <td class="col col-1 info">{{ pro.categoryId }}</td>
+        <td class="col col-1 info">{{ pro.height }} - {{ pro.width }} - {{ pro.length }}</td>
+        <td class="col col-1 info">{{ pro.material }}</td>
+        <td class="col col-1 info">{{ pro.color }}</td>
+        <td class="col col-1 info">{{formatter.format(pro.price)}}</td>
+        <td class="col col-1 info">{{ pro.stock }}</td>
+        <td class="col col-1 info">{{ pro.notes }}</td>
+        <td class="col col-2 action">
+          <button class="btn btn-info" (click)="openModal(true,i)">Sửa</button>
+          <button class="btn btn-danger" (click)="deleteProduct(pro.productId)">Xóa</button>
         </td>
       </tr>
     </tbody>
@@ -76,22 +73,22 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 *ngIf="!isEdit" class="modal-title" id="exampleModalLongTitle">Add new product</h5>
-          <h5 *ngIf="isEdit" class="modal-title" id="exampleModalLongTitle">Edit product</h5>
+          <h5 *ngIf="!isEdit" class="modal-title" id="exampleModalLongTitle">Thêm Mới Sản Phẩm</h5>
+          <h5 *ngIf="isEdit" class="modal-title" id="exampleModalLongTitle">Sửa Sản Phẩm</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-4">Product ID
+            <div class="col-4">Mã SP
               <input *ngIf="isEdit" type="text" [disabled]="isEdit" class="form-control"
                 [(ngModel)]="product.productId" />
             </div>
-            <div class="col-4">Product Name
+            <div class="col-4">Tên SP
               <input type="text" class="form-control" [(ngModel)]="product.productName" />
             </div>
-            <div class="col-4">Category ID
+            <div class="col-4">Loại SP
               <select class="form-control" [(ngModel)]="product.categoryId">
                 <option value="1">Sofa</option>
                 <option value="2">Bàn</option>
@@ -107,18 +104,18 @@
           </div>
 
           <div>
-            <p class="font-weight-bold">Size</p>
+            <p class="font-weight-bold">Kích Thước</p>
             <div class="row">
-              <div class="col-3">Height
+              <div class="col-3">Cao
                 <input type="number" class="form-control" [(ngModel)]="product.height" />
               </div>
-              <div class="col-3">Width
+              <div class="col-3">Rộng
                 <input type="number" class="form-control" [(ngModel)]="product.width" />
               </div>
-              <div class="col-3">Length
+              <div class="col-3">Dài
                 <input type="number" class="form-control" [(ngModel)]="product.length" />
               </div>
-              <div class="col-3">Stock
+              <div class="col-3">Tồn Kho
                 <input type="number" class="form-control" [(ngModel)]="product.stock" />
               </div>
             </div>
@@ -126,33 +123,46 @@
           <br />
 
           <div class="row">
-            <div class="col-4">Material
+            <div class="col-4">Chất Liệu
               <input type="text" class="form-control" [(ngModel)]="product.material" />
             </div>
-            <div class="col-4">Color
+            <div class="col-4">Màu Sắc
               <input type="text" class="form-control" [(ngModel)]="product.color" />
             </div>
-            <div class="col-4">Price
+            <div class="col-4">Đơn Giá
               <input type="number" class="form-control" [(ngModel)]="product.price" />
             </div>
           </div>
           <br />
 
           <div class="row">
-            <div class="col-6">ImageURL
+            <div class="col-6">Đường dẫn hình ảnh
               <input type="text" class="form-control" [(ngModel)]="product.image" />
             </div>
-            <div class="col-6">Notes
+            <div class="col-6">Ghi Chú
               <input type="text" class="form-control" [(ngModel)]="product.notes" />
             </div>
           </div>
         </div>
         <div class="modal-footer p-2">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button *ngIf="!isEdit" type="button" class="btn btn-primary" (click)="createProduct()">Create</button>
-          <button *ngIf="isEdit" type="button" class="btn btn-success" (click)="saveProduct()">Save</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button *ngIf="!isEdit" type="button" class="btn btn-primary" (click)="createProduct()">Thêm</button>
+          <button *ngIf="isEdit" type="button" class="btn btn-success" (click)="saveProduct()">Lưu</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div *ngFor="let pro of products.data">  
+  <img [src]="pro.image">
+ </div>   -->

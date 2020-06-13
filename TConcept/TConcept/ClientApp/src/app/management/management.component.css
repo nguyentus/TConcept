@@ -3,17 +3,29 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
   }
-  
+
+.nameInfo {
+  padding-top: 50px;
+  padding-left: 30px;
+}
+
+.info {
+  padding-top: 50px;
+}
+
+.action {
+  padding-top: 40px;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
-  @media (min-width: 768px) {
-    html {
-      font-size: 16px;
-    }
-  }
-  
-  .box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-  }
-  
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}

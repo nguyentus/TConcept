@@ -14,6 +14,8 @@ import { SofaDetailComponent } from './sofa/sofa-detail/sofa-detail.component';
 import { LoginComponent } from './login/login.component';
 import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 import { ManagementComponent } from './management/management.component';
+import { OrderManagementComponent } from './management/order-management/order-management.component';
+
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,11 +26,11 @@ const routes: Routes =[
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'custom',          component: CustomComponent },
     { path: 'sofa',          component: SofaComponent },
-    // { path: 'sofa-detail/:productId',          component: SofaDetailComponent },
     { path: 'sofa-detail',          component: SofaDetailComponent },
     { path: 'login',          component: LoginComponent },
     { path: 'confirm-order',          component: ConfirmOrderComponent },
-    { path: 'management',          component: ManagementComponent }
+    { path: 'management',          component: ManagementComponent },
+    { path: 'order-management',          component: OrderManagementComponent }
 ];
 
 @NgModule({
