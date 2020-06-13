@@ -16,6 +16,7 @@ namespace TConcept.Common.Req
         public string Color { get; set; }
         public double? Price { get; set; }
         public int? Stock { get; set; }
+        public string Image { get; set; }
         public string Notes { get; set; }
     }
 }

@@ -45,8 +45,9 @@ export class ManagementComponent {
     this.http.post(this.path, x).subscribe(result => {
       var res: any = result;
       if (res.success) {
+        console.log(res)
         this.products = res.data;
-        console.log(this.products)
+        // console.log(this.products)
       }
       else {
         alert(res.message);
