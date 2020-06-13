@@ -14,57 +14,49 @@
     </div>
 </nav>
 
-  
-  <div class="">
-    <p *ngIf="!orders"><em>Loading...</em></p>
-    <table class='table table-striped  text-center' style="margin-top: 10px;" aria-labelledby="tableLabel"
-      *ngIf="orders.totalRecord>0">
-      <thead>
-        <tr class="row">
-          <th class="col col-1">Mã ĐH</th>
-          <th class="col col-2">Họ Tên KH</th>
-          <th class="col col-1">Tên SP</th>
-          <th class="col col-2">Ngày Đặt Hàng</th>
-          <th class="col col-2">Địa Chỉ</th>
-          <th class="col col-1">Ghi Chú</th>
-          <th class="col col-1">Tổng Tiền</th>
-          <th class="col col-2">Hành Động</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let ord of orders.data; index as i;" class="row">
-          <td class="col col-1">{{ ord.orderId }}</td>
-          <td class="col col-2">{{ ord.fullName }}</td>
-          <td class="col col-1">{{ ord.productName }}</td>
-          <td class="col col-2">{{ ord.orderDate }}</td>
-          <td class="col col-2">{{ ord.address }}</td>
-          <td class="col col-1">{{ ord.notes }}</td>
-          <td class="col col-1">{{formatter.format(ord.price)}}</td>
-          <td class="col col-2 action">
-            <button class="btn btn-danger" (click)="deleteOrder(ord.orderId)">Xóa</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="text-center">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" aria-label="Previous" (click) = "searchPrevious()"><span aria-hidden="true" >«</span></a>
-        </li>
-        <li class="page-item" style="margin-left: 5px;">{{orders.page}}</li>
-        <li class="page-item" style="margin-left: 5px;">
-          <a class="page-link" aria-label="Next" (click) = "searchNext()"><span aria-hidden="true">»</span></a>
-        </li>
-      </ul>
-    </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- <div *ngFor="let pro of products.data">  
-    <img [src]="pro.image">
-   </div>   -->
+
+<p *ngIf="!orders"><em>Loading...</em></p>
+<div class="row" style="margin-left: 30px;">
+  <input type="text" name="contentSearch" class="form-control" placeholder="Tên KH..." (focus)="focus=true" [(ngModel)]="content.keyword" style="padding-left: 10px; width: 200px;">
+  <button class="btn btn-success" (click)="searchOrder(1)" style="margin-left: 10px;">Tìm Khách Hàng</button>
+</div>
+<table class='table table-striped  text-center' style="margin-top: 10px;" aria-labelledby="tableLabel"
+  *ngIf="orders.totalRecord>0">
+  <thead>
+    <tr class="row">
+      <th class="col col-1">Mã ĐH</th>
+      <th class="col col-2">Họ Tên KH</th>
+      <th class="col col-1">Tên SP</th>
+      <th class="col col-2">Ngày Đặt Hàng</th>
+      <th class="col col-2">Địa Chỉ</th>
+      <th class="col col-1">Ghi Chú</th>
+      <th class="col col-1">Tổng Tiền</th>
+      <th class="col col-2">Hành Động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ord of orders.data; index as i;" class="row">
+      <td class="col col-1">{{ ord.orderId }}</td>
+      <td class="col col-2">{{ ord.fullName }}</td>
+      <td class="col col-1">{{ ord.productName }}</td>
+      <td class="col col-2">{{ ord.orderDate | date:'dd/MM/yyyy' }}</td>
+      <td class="col col-2">{{ ord.address }}</td>
+      <td class="col col-1">{{ ord.notes }}</td>
+      <td class="col col-1">{{formatter.format(ord.price)}}</td>
+      <td class="col col-2 action">
+        <button class="btn btn-danger" (click)="deleteOrder(ord.orderId)">Xóa</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="text-center">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" aria-label="Previous" (click) = "searchPrevious()"><span aria-hidden="true" >«</span></a>
+    </li>
+    <li class="page-item" style="margin-left: 5px;">{{orders.page}}</li>
+    <li class="page-item" style="margin-left: 5px;">
+      <a class="page-link" aria-label="Next" (click) = "searchNext()"><span aria-hidden="true">»</span></a>
+    </li>
+  </ul>
+</div>

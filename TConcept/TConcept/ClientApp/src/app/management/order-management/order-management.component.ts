@@ -11,6 +11,10 @@ declare var $: any;
 export class OrderManagementComponent {
   path: any = 'https://tconcept.azurewebsites.net/api/Orders/search-orders';
   size: number = 9;
+  content = {
+    keyword: ""
+  }
+  
   orders: any = {
     data: [],
     page: 0,
@@ -41,7 +45,7 @@ export class OrderManagementComponent {
     let x = {
       page: cPage,
       size: this.size,
-      keyword: ""
+      keyword: this.content.keyword
     };
     this.http.post(this.path, x).subscribe(result => {
       var res: any = result;
@@ -127,5 +131,12 @@ export class OrderManagementComponent {
         }
       });
       console.log(id)
+    }
+
+    ngOnInit(){
+      setTimeout(
+        function(){ 
+        location.reload(); 
+        }, 30000);
     }
 }
