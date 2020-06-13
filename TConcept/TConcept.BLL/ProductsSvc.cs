@@ -81,6 +81,7 @@ namespace TConcept.BLL
                 Color = product.Color,
                 Price = product.Price,
                 Stock = product.Stock,
+                Image = product.Image,
                 Notes = product.Notes
             };
             res = _rep.CreateProduct(productNew);
@@ -101,6 +102,7 @@ namespace TConcept.BLL
                 Color = product.Color,
                 Price = product.Price,
                 Stock = product.Stock,
+                Image = product.Image,
                 Notes = product.Notes
             };
             res = _rep.UpdateProduct(productUpdate);

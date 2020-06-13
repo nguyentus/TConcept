@@ -1,0 +1,17 @@
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\bin\Debug\netcoreapp3.1\TConcept.BLL.deps.json
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\bin\Debug\netcoreapp3.1\TConcept.BLL.runtimeconfig.json
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\bin\Debug\netcoreapp3.1\TConcept.BLL.runtimeconfig.dev.json
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\bin\Debug\netcoreapp3.1\TConcept.BLL.dll
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\bin\Debug\netcoreapp3.1\TConcept.BLL.pdb
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\bin\Debug\netcoreapp3.1\TConcept.Common.dll
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\bin\Debug\netcoreapp3.1\TConcept.DAL.dll
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\bin\Debug\netcoreapp3.1\TConcept.Common.pdb
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\bin\Debug\netcoreapp3.1\TConcept.DAL.pdb
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\obj\Debug\netcoreapp3.1\TConcept.BLL.csprojAssemblyReference.cache
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\obj\Debug\netcoreapp3.1\TConcept.BLL.csproj.CoreCompileInputs.cache
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\obj\Debug\netcoreapp3.1\TConcept.BLL.AssemblyInfoInputs.cache
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\obj\Debug\netcoreapp3.1\TConcept.BLL.AssemblyInfo.cs
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\obj\Debug\netcoreapp3.1\TConcept.BLL.csproj.CopyComplete
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\obj\Debug\netcoreapp3.1\TConcept.BLL.dll
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\obj\Debug\netcoreapp3.1\TConcept.BLL.pdb
+C:\Users\myway\OneDrive\Máy tính\TConcept\TConcept\TConcept.BLL\obj\Debug\netcoreapp3.1\TConcept.BLL.genruntimeconfig.cache
