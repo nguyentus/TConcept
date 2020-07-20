@@ -22,7 +22,7 @@ export class LoginComponent {
       userName: this.account.userName,
       userPassword: this.account.userPassword
     };
-    this.http.post('https://tconcept.azurewebsites.net/api/Customers/get-id-login', x).subscribe(result => {
+    this.http.post('https://thetconcept.azurewebsites.net/api/Customers/get-id-login', x).subscribe(result => {
       var res: any = result;
       if (res.customerID != null) {
         //this.products = res.data;

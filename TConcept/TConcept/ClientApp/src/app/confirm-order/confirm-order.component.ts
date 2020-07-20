@@ -43,7 +43,7 @@ export class ConfirmOrderComponent implements OnInit {
         id: this.productId,
         keyword: ""
     }
-    this.http.post('https://tconcept.azurewebsites.net/api/Products/get-product-by-id', x).subscribe(result=>{
+    this.http.post('https://thetconcept.azurewebsites.net/api/Products/get-product-by-id', x).subscribe(result=>{
       this.product=result;
     },err=>console.log(err))
   }
@@ -56,7 +56,7 @@ export class ConfirmOrderComponent implements OnInit {
       id: this.customerId,
       keyword: ""
     }
-    this.http.post('https://tconcept.azurewebsites.net/api/Customers/get-by-id', y).subscribe(result=>{
+    this.http.post('https://thetconcept.azurewebsites.net/api/Customers/get-by-id', y).subscribe(result=>{
       var res: any = result;
       this.customer = res.data;
   },err=>console.log(err))
@@ -74,7 +74,7 @@ export class ConfirmOrderComponent implements OnInit {
       quantity: this.quantity,
     };
     console.log(z);
-    this.http.post('https://tconcept.azurewebsites.net/api/Orders/create-order', z).subscribe(result => {
+    this.http.post('https://thetconcept.azurewebsites.net/api/Orders/create-order', z).subscribe(result => {
       var res: any = result;
       if (res.success) {
         alert("Đơn hàng của bạn đã đặt thành công, chúng tôi sẽ giao hàng sớm nhất!");

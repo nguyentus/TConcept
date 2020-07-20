@@ -125,6 +125,42 @@ namespace TConcept.DAL
             }
             return res;
         }
+        public List<object> GetProductImageDetail(int id)
+        {
+            List<object> res = new List<object>();
+            var cnn = (SqlConnection)Context.Database.GetDbConnection();
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                var cmd = cnn.CreateCommand();
+                cmd.CommandText = "GetProductImageDetail"; // Lấy tên Store Procedure muốn thực thi
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ProductID", id);
+                da.SelectCommand = cmd; // Gọi thực thi Store Procedure 
+                da.Fill(ds);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var x = new
+                        {
+                            Image = row.IsNull("Image") ? null : row["Image"]
+                        };
+                        res.Add(x);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
         public SingleRsp CreateProduct(Products product)
         {
             var res = new SingleRsp();

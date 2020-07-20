@@ -28,7 +28,7 @@ export class SofaDetailComponent implements OnInit {
           id: this.productId,
           keyword: ""
       }
-      http.post('https://tconcept.azurewebsites.net/api/Products/get-product-by-id', x).subscribe(result=>{
+    http.post('https://thetconcept.azurewebsites.net/api/Products/get-product-by-id', x).subscribe(result=>{
         this.product=result;
         ///console.log(this.product);
       },err=>console.log(err))

@@ -22,7 +22,7 @@ export class SofaComponent implements OnInit {
 
   loadProduct(){
     //Tất cả sản phẩm   
-    this.http.post('https://tconcept.azurewebsites.net/api/Products/get-all-products-by-stored',null).subscribe(result=>{
+    this.http.post('https://thetconcept.azurewebsites.net/api/Products/get-all-products-by-stored',null).subscribe(result=>{
       this.listProduct = result;
     },err=>console.log(err));
   }

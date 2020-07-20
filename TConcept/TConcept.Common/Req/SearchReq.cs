@@ -11,5 +11,6 @@ namespace TConcept.Common.Req
         public int Id { set; get; }
         public string Type { set; get; }
         public string Keyword { set; get; }
+        public string Date { set; get; }
     }
 }

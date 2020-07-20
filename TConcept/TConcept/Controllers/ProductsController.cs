@@ -46,6 +46,13 @@ namespace TConcept.WEB.Controllers
             return Ok(res);
         }
 
+        [HttpPost("get-product-image-detail")]
+        public IActionResult GetProductImageDetail([FromBody]SimpleReq req)
+        {
+            List<object> res = _svc.GetProductImageDetail(req.Id);
+            return Ok(res);
+        }
+
         [HttpPost("get-product-by-id")]
         public IActionResult GetProductById([FromBody]SimpleReq req)
         {

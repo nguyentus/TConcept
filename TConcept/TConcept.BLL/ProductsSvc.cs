@@ -67,6 +67,10 @@ namespace TConcept.BLL
         {
             return _rep.GetAllProductsByStored();
         }
+        public List<object> GetProductImageDetail(int id)
+        {
+            return _rep.GetProductImageDetail(id);
+        }
         public SingleRsp CreateProduct(ProductReq product)
         {
             var res = new SingleRsp();

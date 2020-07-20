@@ -53,6 +53,7 @@ namespace TConcept.BLL
                               join c in customers on o.CustomerId equals c.CustomerId
                               join p in products on od.ProductId equals p.ProductId
                               where c.FullName.ToLower().Contains(req.Keyword)
+                              //&& String.Format("{0:MM/dd/yyyy}", o.OrderDate).Contains(req.Date)
                               select new OrderInfoViewModel()
                               {
                                   OrderId = o.OrderId,

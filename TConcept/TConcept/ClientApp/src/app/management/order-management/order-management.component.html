@@ -19,6 +19,8 @@
 <div class="row" style="margin-left: 30px;">
   <input type="text" name="contentSearch" class="form-control" placeholder="Tên KH..." (focus)="focus=true" [(ngModel)]="content.keyword" style="padding-left: 10px; width: 200px;">
   <button class="btn btn-success" (click)="searchOrder(1)" style="margin-left: 10px;">Tìm Khách Hàng</button>
+  <!-- <input type="text" name="contentSearch" class="form-control" placeholder="Ngày ĐH..." (focus)="focus=true" [(ngModel)]="content.orderDate" style="padding-left: 10px; width: 200px;">
+  <button class="btn btn-success" (click)="searchOrder(1)" style="margin-left: 10px;">Tìm Đơn Hàng</button> -->
 </div>
 <table class='table table-striped  text-center' style="margin-top: 10px;" aria-labelledby="tableLabel"
   *ngIf="orders.totalRecord>0">

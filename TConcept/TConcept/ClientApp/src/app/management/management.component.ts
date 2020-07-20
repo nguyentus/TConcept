@@ -8,7 +8,7 @@ declare var $: any;
 })
 export class ManagementComponent {
 
-  path: any = 'https://tconcept.azurewebsites.net/api/Products/search-products';
+  path: any = 'https://thetconcept.azurewebsites.net/api/Products/search-products';
   size: number = 5;
   products: any = {
     data: [],
@@ -134,7 +134,7 @@ export class ManagementComponent {
       image: this.product.image,
       notes: this.product.notes
     };
-    this.http.post('https://tconcept.azurewebsites.net/api/Products/create-product', x).subscribe(result => {
+    this.http.post('https://thetconcept.azurewebsites.net/api/Products/create-product', x).subscribe(result => {
       var res: any = result;
       if (res.success) {
         this.products = res.data;
@@ -166,7 +166,7 @@ export class ManagementComponent {
       image: this.product.image,
       notes: this.product.notes
     };
-    this.http.post('https://tconcept.azurewebsites.net/api/Products/update-product', x).subscribe(result => {
+    this.http.post('https://thetconcept.azurewebsites.net/api/Products/update-product', x).subscribe(result => {
       var res: any = result;
       if (res.success) {
         this.products = res.data;
@@ -187,7 +187,7 @@ export class ManagementComponent {
       id: id,
       keyword: ""
     }
-      this.http.post('https://tconcept.azurewebsites.net/api/Products/delete-product-by-id', x).subscribe(result => {
+    this.http.post('https://thetconcept.azurewebsites.net/api/Products/delete-product-by-id', x).subscribe(result => {
         var res : any = result
         if (res.success) {
           this.products = res.data;

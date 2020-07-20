@@ -9,10 +9,11 @@ declare var $: any;
 })
 
 export class OrderManagementComponent {
-  path: any = 'https://tconcept.azurewebsites.net/api/Orders/search-orders';
+  path: any = 'https://thetconcept.azurewebsites.net/api/Orders/search-orders';
   size: number = 9;
   content = {
-    keyword: ""
+    keyword: "",
+    orderDate: ""
   }
   
   orders: any = {
@@ -45,7 +46,7 @@ export class OrderManagementComponent {
     let x = {
       page: cPage,
       size: this.size,
-      keyword: this.content.keyword
+      keyword: this.content.keyword,
     };
     this.http.post(this.path, x).subscribe(result => {
       var res: any = result;
@@ -119,7 +120,7 @@ export class OrderManagementComponent {
       id: id,
       keyword: ""
     }
-      this.http.post('https://tconcept.azurewebsites.net/api/Orders/delete-order', x).subscribe(result => {
+    this.http.post('https://thetconcept.azurewebsites.net/api/Orders/delete-order', x).subscribe(result => {
         var res : any = result
         if (res.success) {
           this.orders = res.data;
