@@ -1,3 +1,16 @@
+CREATE PROC GetProductsRelated
+AS
+BEGIN
+	 SELECT TOP(5) p.*, c.CategoryName 
+	 FROM Products p, Categories c
+	 WHERE p.CategoryID = c.CategoryID AND p.Notes LIKE '%Sofa%'
+	 ORDER BY p.ProductID DESC
+END
+GO
+
+EXEC GetAllProductsByStored
+GO
+---------------------------------------------------------------------------------------------------------
 CREATE PROC DeleteOrder
 (
 	@OrderID INT
