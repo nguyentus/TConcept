@@ -1,4 +1,4 @@
-CREATE PROC GetProductsRelated
+CREATE PROC GetAllProductsRelated
 AS
 BEGIN
 	 SELECT TOP(5) p.*, c.CategoryName 
@@ -8,7 +8,7 @@ BEGIN
 END
 GO
 
-EXEC GetAllProductsByStored
+EXEC GetAllProductsRelated
 GO
 ---------------------------------------------------------------------------------------------------------
 CREATE PROC DeleteOrder
