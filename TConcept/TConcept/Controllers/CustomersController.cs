@@ -56,7 +56,7 @@ namespace TConcept.WEB.Controllers
         }
 
         [HttpPost("get-id-login")]
-        public IActionResult GetProductById([FromBody]LoginReq req)
+        public IActionResult GetCustomerId([FromBody]LoginReq req)
         {
             object res = _svc.GetCustomerId(req.UserName, req.UserPassword);
             return Ok(res);

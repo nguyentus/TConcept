@@ -7,6 +7,15 @@ using TConcept.Common.Req;
 using TConcept.Common.Rsp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TConcept.Models;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TConcept.WEB.Controllers
 {
@@ -14,9 +23,12 @@ namespace TConcept.WEB.Controllers
     [ApiController]
     public class AccountsController : ControllerBase
     {
-        public AccountsController()
+
+        private IConfiguration _config;
+        public AccountsController(IConfiguration config)
         {
             _svc = new AccountsSvc();
+            _config = config;
         }
 
         [HttpPost("get-account-login")]
@@ -56,6 +68,7 @@ namespace TConcept.WEB.Controllers
         //    return Ok(res);
         //}
 
+        [Authorize]
         [HttpPost("get-by-id")]
         public IActionResult getAccountById([FromBody]SimpleReq req)
         {
@@ -70,6 +83,67 @@ namespace TConcept.WEB.Controllers
         //    var res = _svc.GetInfoAccountByID(req.AccountId);
         //    return Ok(res);
         //}
+
+
+        // Config TOKEN
+        private Accounts AuthenticateUser(Accounts login)
+        {
+            Accounts user = null;
+            if (login.UserName == "nguyentu" && login.UserPassword == "123")
+            {
+                user = new Accounts()
+                {
+                    UserName = "Thanh Tu Nguyen",
+                    UserPassword = "123",
+                    Notes = "Day la api co token"
+                };
+            }
+            return user;
+        }
+
+        private string GenerateJSONWebToken(Accounts userInfo)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, userInfo.UserName),
+                new Claim(JwtRegisteredClaimNames.Email, userInfo.Notes),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: _config["Jwt:Issuer"],
+                audience: _config["Jwt:Issuer"],
+                claims,
+                expires: DateTime.Now.AddMinutes(120),
+                signingCredentials: credentials);
+
+            var encodeToken = new JwtSecurityTokenHandler().WriteToken(token);
+            return encodeToken;
+        }
+
+        [HttpGet("get-account-token")]
+        public IActionResult GetAccountToken(string username, string password)
+        {
+            var login = new Accounts()
+            {
+                UserName = username,
+                UserPassword = password
+            };
+
+            IActionResult respone = Unauthorized();
+            var user = AuthenticateUser(login);
+
+            if (user != null)
+            {
+                var tokenStr = GenerateJSONWebToken(user);
+                respone = Ok(new { token = tokenStr });
+            }
+
+            return respone;
+        }
 
         private readonly AccountsSvc _svc;
     }
