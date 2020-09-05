@@ -4,8 +4,8 @@
 
 Trang Web cho phép khách hàng đặt hàng nội thất và nhân viên quản lý sản phẩm, đơn hàng.
 
-[https://thetconcept.azurewebsites.net]
 [https://the-tconcept.web.app]
+[https://thetconcept.azurewebsites.net/management]
 
 Sử dụng MVC API (Backend) trên nền tảng Dotnet Core kết hợp Angular ClientApp (Frontend) để xây dựng ứng dụng chạy trên nền tảng Web.
 
